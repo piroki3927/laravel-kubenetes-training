@@ -1,0 +1,4 @@
+.env
+/vendor
+/helm/secrets.yaml
+/helm/values.yaml

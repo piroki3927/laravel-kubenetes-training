@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8.0-apache
 
 # Install packages
 RUN apt-get update && apt-get install -y \
@@ -41,7 +41,7 @@ VOLUME /var/www/html
 # Copy code and run composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY . /var/www/tmp
-RUN cd /var/www/tmp && composer install --no-dev
+RUN cd /var/www/tmp && composer install
 
 # Ensure the entrypoint file can be run
 RUN chmod +x /var/www/tmp/docker-entrypoint.sh
